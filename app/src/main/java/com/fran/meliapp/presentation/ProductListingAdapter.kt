@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil3.load
+import coil3.network.httpMethod
 import coil3.request.crossfade
 import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.databinding.ViewProductListingItemBinding
@@ -29,7 +30,11 @@ class ProductListingAdapter(
     override fun onBindViewHolder(holder: ProductListingViewHolder, position: Int) {
         holder.binding.apply {
             productItemTitle.text = productList[position].title
-            productItemImg.load(productList[position].thumbnail) {
+            productItemImg.load(
+                // This is necessary Coil client doesn't support unsecure calls.
+                // TODO: Loading and error icons
+                productList[position].thumbnail.replace("http://", "https://")
+            ) {
                 crossfade(true)
             }
         }
