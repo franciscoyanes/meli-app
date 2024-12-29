@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fran.meliapp.databinding.FragmentProductListingBinding
 import com.fran.meliapp.presentation.ProductListingAdapter
-import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.presentation.ProductListingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

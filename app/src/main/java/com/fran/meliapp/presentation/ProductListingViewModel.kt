@@ -27,7 +27,6 @@ class ProductListingViewModel @Inject constructor(
 
     init {
         fetchProducts("Motorola 6G")
-        Logger.getLogger("ProductListingViewModel").info("ProductListingViewModel created")
     }
 
     private fun fetchProducts(query: String) {
@@ -45,7 +44,7 @@ class ProductListingViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
-        // The invoke function returns a Flow, so we need to launch it a coroutine because
+        // The invoke function returns a Flow, so we need to launch it in a coroutine because
         // flows are async.
     }
 }
