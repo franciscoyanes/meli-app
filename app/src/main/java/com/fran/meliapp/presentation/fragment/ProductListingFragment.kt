@@ -45,7 +45,8 @@ class ProductListingFragment : Fragment() {
         viewModel.productsLiveData.observe(viewLifecycleOwner) { products ->
             val adapter = ProductListingAdapter(products)
             binding.productListingRv.adapter = adapter
-            binding.productListingRv.layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
+            binding.productListingRv.layoutManager = GridLayoutManager(
+                requireContext(), 2, GridLayoutManager.VERTICAL, false)
         }
 
 //

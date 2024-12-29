@@ -13,6 +13,8 @@ data class ProductDto(
     val title: String,
     @SerializedName("price")
     val price: Float,
+    @SerializedName("thumbnail")
+    val thumbnail: String,
 //    @SerializedName("currency_id")
 //    val currencyId: String,
 //    @SerializedName("available_quantity")
@@ -27,8 +29,6 @@ data class ProductDto(
 //    val condition: String,
 //    @SerializedName("permalink")
 //    val permalink: String,
-//    @SerializedName("thumbnail")
-//    val thumbnail: String,
 //    @SerializedName("accepts_mercadopago")
 //    val acceptsMercadopago: Boolean,
 //    @SerializedName("installments")
@@ -94,6 +94,7 @@ data class ProductDto(
 
 fun ProductDto.toProduct(): ProductListingItem {
     return ProductListingItem(
-        title = title
+        title = title,
+        thumbnail = thumbnail
     )
 }

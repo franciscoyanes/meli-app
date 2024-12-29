@@ -1,23 +1,25 @@
 package com.fran.meliapp.presentation
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.fran.meliapp.R
+import coil3.load
+import coil3.request.crossfade
 import com.fran.meliapp.data.domain.model.ProductListingItem
+import com.fran.meliapp.databinding.ViewProductListingItemBinding
 
 class ProductListingAdapter(
     private var productList: List<ProductListingItem>
 ) : RecyclerView.Adapter<ProductListingAdapter.ProductListingViewHolder>() {
 
-    inner class ProductListingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    inner class ProductListingViewHolder(
+        val binding: ViewProductListingItemBinding
+    ) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductListingViewHolder {
-        val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.view_product_listing_item, parent, false)
-        return ProductListingViewHolder(view)
+        val binding = ViewProductListingItemBinding
+            .inflate(LayoutInflater.from(parent.context), parent, false)
+        return ProductListingViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -25,8 +27,11 @@ class ProductListingAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductListingViewHolder, position: Int) {
-        holder.itemView.apply {
-            findViewById<TextView>(R.id.product_listing_item_title).text = productList[position].title
+        holder.binding.apply {
+            productItemTitle.text = productList[position].title
+            productItemImg.load(productList[position].thumbnail) {
+                crossfade(true)
+            }
         }
     }
 }
