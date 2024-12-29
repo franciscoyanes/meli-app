@@ -5,16 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fran.meliapp.R
 import com.fran.meliapp.databinding.FragmentProductListingBinding
 import com.fran.meliapp.presentation.ProductListingAdapter
-import com.fran.meliapp.presentation.ProductListingItem
+import com.fran.meliapp.data.domain.model.ProductListingItem
+import com.fran.meliapp.presentation.ProductListingViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductListingFragment : Fragment() {
 
     private var _binding: FragmentProductListingBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: ProductListingViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +29,7 @@ class ProductListingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentProductListingBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,25 +42,32 @@ class ProductListingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var productList = mutableListOf(
-            ProductListingItem("Producto 1"),
-            ProductListingItem("Producto 2"),
-            ProductListingItem("Producto 3"),
-            ProductListingItem("Producto 4"),
-            ProductListingItem("Producto 5"),
-            ProductListingItem("Producto 6"),
-            ProductListingItem("Producto 7"),
-            ProductListingItem("Producto 8"),
-            ProductListingItem("Producto 9"),
-            ProductListingItem("Producto 10"),
-            ProductListingItem("Producto 11"),
-            ProductListingItem("Producto 12"),
-            ProductListingItem("Producto 13"),
-            ProductListingItem("Producto 14"),
-            ProductListingItem("Producto 15"),
-        )
-        val adapter = ProductListingAdapter(productList)
-        binding.productListingRv.adapter = adapter
-        binding.productListingRv.layoutManager = LinearLayoutManager(requireContext())
+        viewModel.productsLiveData.observe(viewLifecycleOwner) { products ->
+            val adapter = ProductListingAdapter(products)
+            binding.productListingRv.adapter = adapter
+            binding.productListingRv.layoutManager = LinearLayoutManager(requireContext())
+        }
+
+//
+//        var productList = mutableListOf(
+//            ProductListingItem("Producto 1"),
+//            ProductListingItem("Producto 2"),
+//            ProductListingItem("Producto 3"),
+//            ProductListingItem("Producto 4"),
+//            ProductListingItem("Producto 5"),
+//            ProductListingItem("Producto 6"),
+//            ProductListingItem("Producto 7"),
+//            ProductListingItem("Producto 8"),
+//            ProductListingItem("Producto 9"),
+//            ProductListingItem("Producto 10"),
+//            ProductListingItem("Producto 11"),
+//            ProductListingItem("Producto 12"),
+//            ProductListingItem("Producto 13"),
+//            ProductListingItem("Producto 14"),
+//            ProductListingItem("Producto 15"),
+//        )
+//        val adapter = ProductListingAdapter(productList)
+//        binding.productListingRv.adapter = adapter
+//        binding.productListingRv.layoutManager = LinearLayoutManager(requireContext())
     }
 }

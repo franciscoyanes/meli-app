@@ -1,6 +1,7 @@
 package com.fran.meliapp.data.remote.dto
 
 
+import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.google.gson.annotations.SerializedName
 
 data class ProductDto(
@@ -88,5 +89,11 @@ data class ProductDto(
         val source: Int,
         @SerializedName("id")
         val id: String
+    )
+}
+
+fun ProductDto.toProduct(): ProductListingItem {
+    return ProductListingItem(
+        title = title
     )
 }

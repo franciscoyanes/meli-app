@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.fran.meliapp.R
+import com.fran.meliapp.data.domain.model.ProductListingItem
 
 class ProductListingAdapter(
     private var productList: List<ProductListingItem>
