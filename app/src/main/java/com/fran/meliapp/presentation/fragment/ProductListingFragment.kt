@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fran.meliapp.databinding.FragmentProductListingBinding
 import com.fran.meliapp.presentation.ProductListingAdapter
@@ -44,7 +45,7 @@ class ProductListingFragment : Fragment() {
         viewModel.productsLiveData.observe(viewLifecycleOwner) { products ->
             val adapter = ProductListingAdapter(products)
             binding.productListingRv.adapter = adapter
-            binding.productListingRv.layoutManager = LinearLayoutManager(requireContext())
+            binding.productListingRv.layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
         }
 
 //
