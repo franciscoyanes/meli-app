@@ -1,5 +1,6 @@
 package com.fran.meliapp.data.repository
 
+import android.util.Log
 import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.data.remote.MeliApi
 import com.fran.meliapp.data.remote.dto.toProduct
@@ -14,6 +15,7 @@ class ProductRepositoryImpl @Inject constructor(
 
     override suspend fun searchProducts(query: String): List<ProductListingItem> {
         val response = api.searchProducts(query)
+        Log.d("network", response.body().toString())
         val products = response.body()!!.results.map { it.toProduct() }
         return products
     }

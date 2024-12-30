@@ -15,6 +15,10 @@ data class ProductDto(
     val price: Float,
     @SerializedName("thumbnail")
     val thumbnail: String,
+    @SerializedName("address")
+    val address: Address,
+    @SerializedName("seller")
+    val seller: Seller,
 //    @SerializedName("currency_id")
 //    val currencyId: String,
 //    @SerializedName("available_quantity")
@@ -90,11 +94,24 @@ data class ProductDto(
 //        @SerializedName("id")
 //        val id: String
 //    )
+
+    data class Address(
+        @SerializedName("state_name")
+        val stateName: String
+    )
+
+    data class Seller(
+        @SerializedName("nickname")
+        val nickname: String
+    )
 }
 
 fun ProductDto.toProduct(): ProductListingItem {
     return ProductListingItem(
         title = title,
-        thumbnail = thumbnail
+        thumbnail = thumbnail,
+        stateName = address.stateName,
+        sellerNickname = seller.nickname,
+        price = price
     )
 }

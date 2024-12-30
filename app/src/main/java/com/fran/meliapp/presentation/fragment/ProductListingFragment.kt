@@ -20,7 +20,7 @@ class ProductListingFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: ProductListingViewModel by viewModels()
-
+    private lateinit var adapter: ProductListingAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,16 +34,11 @@ class ProductListingFragment : Fragment() {
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.productsLiveData.observe(viewLifecycleOwner) { products ->
-            val adapter = ProductListingAdapter(products)
+            adapter = ProductListingAdapter(products)
             binding.productListingRv.adapter = adapter
             binding.productListingRv.layoutManager = GridLayoutManager(
                 requireContext(), 2, GridLayoutManager.VERTICAL, false)
@@ -70,5 +65,10 @@ class ProductListingFragment : Fragment() {
 //        val adapter = ProductListingAdapter(productList)
 //        binding.productListingRv.adapter = adapter
 //        binding.productListingRv.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

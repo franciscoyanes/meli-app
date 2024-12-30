@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ItemTitleText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/black_mine_shaft</item>
+    </style>
+</resources>
