@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil3.load
 import coil3.request.crossfade
+import com.fran.meliapp.common.util.StringUtils
 import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.databinding.ViewProductListingItemBinding
 import java.util.Locale
@@ -35,10 +36,7 @@ class ProductListingAdapter(
             productItemTitle.text = productItem.title
             productItemSellerName.text = productItem.sellerNickname
             productItemSellerAddress.text = productItem.stateName
-            productItemPrice.text = buildString {
-                append("$ ")
-                append(String.format(Locale.GERMANY, "%,.0f", productItem.price))
-            }
+            productItemPrice.text = StringUtils.floatToPriceString(productItem.price)
             productItemImg.load(
                 // This is necessary because Coil client doesn't support unsecure calls.
                 // TODO: Loading and error icons
