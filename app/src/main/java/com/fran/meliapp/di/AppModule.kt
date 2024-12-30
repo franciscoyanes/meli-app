@@ -4,6 +4,7 @@ import com.fran.meliapp.common.Constants
 import com.fran.meliapp.data.remote.MeliApi
 import com.fran.meliapp.data.repository.ProductRepositoryImpl
 import com.fran.meliapp.domain.repository.ProductRepository
+import com.fran.meliapp.domain.use_case.SearchProductUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +31,11 @@ object AppModule {
     @Singleton
     fun provideProductRepository(api: MeliApi): ProductRepository {
         return ProductRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSearchProductUseCase(repository: ProductRepository): SearchProductUseCase {
+        return SearchProductUseCase(repository)
     }
 }

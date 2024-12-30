@@ -16,11 +16,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProductListingViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
-    repository: ProductRepository
+    private val searchProductUseCase: SearchProductUseCase
 ) : ViewModel() {
 
-    private val searchProductUseCase: SearchProductUseCase = SearchProductUseCase(repository)
     private val _productsLiveData = MutableLiveData<List<ProductListingItem>>()
     val productsLiveData: LiveData<List<ProductListingItem>> = _productsLiveData
 
@@ -29,7 +27,7 @@ class ProductListingViewModel @Inject constructor(
     }
 
     private fun fetchProducts(query: String) {
-        searchProductUseCase.invoke(query).onEach { result ->
+        searchProductUseCase(query).onEach { result ->
             when(result) {
                 is Resource.Success -> {
                     _productsLiveData.value = result.data ?: emptyList()
