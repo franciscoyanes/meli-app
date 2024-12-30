@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.fran.meliapp.R
 import com.fran.meliapp.databinding.FragmentProductListingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,11 +21,6 @@ class ProductListingFragment : Fragment() {
 
     private val viewModel: ProductListingViewModel by viewModels()
     private lateinit var adapter: ProductListingAdapter
-
-    // TODO: Delete method if not used.
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +40,11 @@ class ProductListingFragment : Fragment() {
                 requireContext(), 2, GridLayoutManager.VERTICAL, false)
             adapter.setOnItemClickListener {
                 Toast.makeText(requireContext(), "CLICK", Toast.LENGTH_SHORT).show()
+                val bundle = Bundle().apply {
+                    putSerializable("product", it)
+                }
+                findNavController()
+                    .navigate(R.id.action_productListingFragment_to_productDetailFragment, bundle)
             }
         }
 

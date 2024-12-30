@@ -23,7 +23,7 @@
         android:maxLines="2"
         android:ellipsize="end"
         />
-    
+
     <ImageView
         android:id="@+id/product_detail_img"
         android:layout_width="match_parent"
@@ -33,7 +33,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:scaleType="centerCrop"
         />
-
 
     <TextView
         android:id="@+id/product_detail_price"
