@@ -13,6 +13,8 @@ class ProductListingAdapter(
     private var productList: List<ProductListingItem>
 ) : RecyclerView.Adapter<ProductListingAdapter.ProductListingViewHolder>() {
 
+    private var onItemClickListener: ((ProductListingItem) -> Unit)? = null
+
     inner class ProductListingViewHolder(
         val binding: ViewProductListingItemBinding
     ) : RecyclerView.ViewHolder(binding.root)
@@ -29,20 +31,28 @@ class ProductListingAdapter(
 
     override fun onBindViewHolder(holder: ProductListingViewHolder, position: Int) {
         holder.binding.apply {
-            productItemTitle.text = productList[position].title
-            productItemSellerName.text = productList[position].sellerNickname
-            productItemSellerAddress.text = productList[position].stateName
+            val productItem = productList[position]
+            productItemTitle.text = productItem.title
+            productItemSellerName.text = productItem.sellerNickname
+            productItemSellerAddress.text = productItem.stateName
             productItemPrice.text = buildString {
                 append("$ ")
-                append(String.format(Locale.GERMANY, "%,.0f", productList[position].price))
+                append(String.format(Locale.GERMANY, "%,.0f", productItem.price))
             }
             productItemImg.load(
                 // This is necessary because Coil client doesn't support unsecure calls.
                 // TODO: Loading and error icons
-                productList[position].thumbnail.replace("http://", "https://")
+                productItem.thumbnail.replace("http://", "https://")
             ) {
                 crossfade(true)
             }
+            root.setOnClickListener {
+                onItemClickListener?.let { it(productItem) }
+            }
         }
+    }
+
+    fun setOnItemClickListener(listener: (ProductListingItem) -> Unit) {
+        onItemClickListener = listener
     }
 }
