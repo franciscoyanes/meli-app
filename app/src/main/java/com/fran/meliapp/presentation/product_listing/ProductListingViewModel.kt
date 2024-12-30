@@ -1,4 +1,4 @@
-package com.fran.meliapp.presentation
+package com.fran.meliapp.presentation.product_listing
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +12,6 @@ import com.fran.meliapp.domain.use_case.SearchProductUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import java.util.logging.Logger
 import javax.inject.Inject
 
 @HiltViewModel

@@ -6,4 +6,4 @@ data class ProductListingItem(
     val stateName: String,
     val sellerNickname: String,
     val price: Float
-    )
+)

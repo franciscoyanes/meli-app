@@ -5,7 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.fran.meliapp.presentation.fragment.ProductListingFragment
+import com.fran.meliapp.presentation.product_listing.ProductListingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

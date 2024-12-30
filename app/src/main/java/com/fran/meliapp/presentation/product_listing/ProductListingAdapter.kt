@@ -1,4 +1,4 @@
-package com.fran.meliapp.presentation
+package com.fran.meliapp.presentation.product_listing
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

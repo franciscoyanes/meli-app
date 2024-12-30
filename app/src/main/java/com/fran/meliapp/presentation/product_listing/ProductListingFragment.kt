@@ -1,4 +1,4 @@
-package com.fran.meliapp.presentation.fragment
+package com.fran.meliapp.presentation.product_listing
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.fran.meliapp.databinding.FragmentProductListingBinding
-import com.fran.meliapp.presentation.ProductListingAdapter
-import com.fran.meliapp.presentation.ProductListingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +20,7 @@ class ProductListingFragment : Fragment() {
     private val viewModel: ProductListingViewModel by viewModels()
     private lateinit var adapter: ProductListingAdapter
 
+    // TODO: Delete method if not used.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
