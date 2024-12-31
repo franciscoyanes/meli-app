@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="text_padding_h">18dp</dimen>
+<!--  Layout  -->
+    <dimen name="universal_margin_layout_h">18dp</dimen>
+    <dimen name="item_margin_layout_h">12dp</dimen>
+
+<!--  Views Gap  -->
+    <dimen name="gap_h_small">4dp</dimen>
+    <dimen name="gap_h_medium">8dp</dimen>
+    <dimen name="gap_h_large">18dp</dimen>
+    <dimen name="gap_v_small">8dp</dimen>
+    <dimen name="gap_v_medium">18dp</dimen>
+
+<!--  Search Screen  -->
+    <dimen name="search_input_height">48dp</dimen>
+    <dimen name="search_input_padding_drawable">4dp</dimen>
+    <dimen name="search_input_padding_h">12dp</dimen>
+
+
+    <!--  Listing Item  -->
+    <dimen name="rv_item_gap">4dp</dimen>
+    <dimen name="rv_item_height">400dp</dimen>
+    <dimen name="rv_item_img_height">220dp</dimen>
+    <dimen name="rv_item_title_height">32dp</dimen>
 </resources>

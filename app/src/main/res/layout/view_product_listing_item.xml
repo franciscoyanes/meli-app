@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.product_listing.ProductListingFragment"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="@dimen/rv_item_height"
     android:background="@drawable/bg_view_product_listing_item"
-    android:layout_margin="4dp"
+    android:layout_margin="@dimen/rv_item_gap"
     android:clipChildren="true"
     android:clipToPadding="true"
     >
@@ -14,7 +14,7 @@
     <ImageView
         android:id="@+id/product_item_img"
         android:layout_width="0dp"
-        android:layout_height="220dp"
+        android:layout_height="@dimen/rv_item_img_height"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,64 +24,58 @@
     <TextView
         android:id="@+id/product_item_title"
         android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:text="TITLE PLACEHOLDER\nTITLE PLACEHOLDER"
+        android:layout_height="@dimen/rv_item_title_height"
         app:layout_constraintTop_toBottomOf="@id/product_item_img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_marginTop="18dp"
-        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="@dimen/gap_h_large"
+        android:layout_marginHorizontal="@dimen/item_margin_layout_h"
 
-        android:fontFamily="@font/proximanova_regular"
-        android:textSize="14sp"
+        style="@style/ItemTitleText"
+        android:text="TITLE_PLACEHOLDER\nTITLE_PLACEHOLDER"
         android:maxLines="2"
-        android:ellipsize="end"
         />
 
     <TextView
         android:id="@+id/product_item_seller_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vendedor:"
         app:layout_constraintTop_toBottomOf="@id/product_item_title"
         app:layout_constraintStart_toStartOf="parent"
 
-        android:layout_marginTop="4dp"
-        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="@dimen/gap_h_small"
+        android:layout_marginHorizontal="@dimen/item_margin_layout_h"
 
-        android:fontFamily="@font/proximanova_light"
-        android:textSize="10sp"
+        style="@style/ItemLabelSmall"
+        android:text="@string/fragment_listing_item_seller_label"
         />
 
     <TextView
         android:id="@+id/product_item_seller_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="NOMBRE_VENDEDOR"
         app:layout_constraintTop_toBottomOf="@id/product_item_seller_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="12dp"
+        android:layout_marginHorizontal="@dimen/item_margin_layout_h"
 
-        android:fontFamily="@font/proximanova_semibold"
-        android:textSize="12sp"
+        style="@style/ItemSellerText"
+        android:text="SELLER_PLACEHOLDER"
         android:maxLines="1"
-        android:ellipsize="end"
         />
 
     <TextView
         android:id="@+id/product_item_seller_address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="PROVINCIA"
         app:layout_constraintTop_toBottomOf="@id/product_item_seller_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="12dp"
+        android:layout_marginHorizontal="@dimen/item_margin_layout_h"
 
-        android:fontFamily="@font/proximanova_light"
-        android:textSize="12sp"
+        style="@style/ItemAddressText"
+        android:text="ADDRESS_PLACEHOLDER"
         android:maxLines="1"
         />
 
@@ -89,18 +83,16 @@
         android:id="@+id/product_item_price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="$ PRICE"
         app:layout_constraintTop_toBottomOf="@id/product_item_seller_address"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:layout_marginHorizontal="12dp"
+        android:layout_marginHorizontal="@dimen/item_margin_layout_h"
 
-        android:fontFamily="@font/proximanova_regular"
-        android:textSize="24sp"
+        style="@style/ItemPriceText"
+        android:text="$ 000.000"
         android:maxLines="1"
-        android:ellipsize="end"
         />
 
 

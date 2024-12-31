@@ -22,30 +22,26 @@
     <EditText
         android:id="@+id/product_search_edit_text"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="@dimen/search_input_height"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:autofillHints=""
-
-        android:layout_marginHorizontal="18dp"
+        app:layout_constraintVertical_bias="0.4"
+        android:layout_marginHorizontal="@dimen/universal_margin_layout_h"
+        android:paddingHorizontal="@dimen/search_input_padding_h"
+        android:background="@drawable/bg_search_input"
 
         android:drawableStart="@drawable/ic_search_input"
-        android:drawablePadding="4dp"
+        android:drawablePadding="@dimen/search_input_padding_drawable"
 
-        android:background="@drawable/bg_search_input"
-        android:paddingHorizontal="12dp"
-
-        android:hint="Buscar en Mercado Libre"
+        android:hint="@string/fragment_search_hint"
         android:textSize="14sp"
         android:inputType="text"
         android:imeOptions="actionSearch"
-        android:imeActionLabel="asdasd"
         android:maxLines="1"
         android:maxLength="100"
-
-        app:layout_constraintVertical_bias="0.4"
+        android:autofillHints=""
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

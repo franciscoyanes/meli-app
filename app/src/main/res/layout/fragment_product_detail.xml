@@ -25,6 +25,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="none"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,19 +33,18 @@
             >
             <TextView
                 android:id="@+id/product_detail_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="TITLE PLACEHOLDER"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:paddingHorizontal="@dimen/text_padding_h"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/universal_margin_layout_h"
 
-                android:layout_marginVertical="18dp"
+                android:layout_marginVertical="@dimen/gap_v_medium"
 
-                android:fontFamily="@font/proximanova_regular"
-                android:textSize="18sp"
+                style="@style/DetailTitleText"
+                android:text="TITLE PLACEHOLDER"
                 android:maxLines="3"
-                android:ellipsize="end"
                 />
 
             <ImageView
@@ -56,24 +56,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:scaleType="centerCrop"
-                android:layout_marginVertical="18dp"
+                android:layout_marginVertical="@dimen/gap_h_large"
                 />
 
             <TextView
                 android:id="@+id/product_detail_price"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="$ PRICE"
                 app:layout_constraintTop_toBottomOf="@id/product_detail_img"
                 app:layout_constraintStart_toStartOf="parent"
-                android:paddingHorizontal="@dimen/text_padding_h"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/universal_margin_layout_h"
 
-                android:layout_marginVertical="18dp"
+                android:layout_marginVertical="@dimen/gap_v_medium"
 
-                android:fontFamily="@font/proximanova_regular"
-                android:textSize="38sp"
+                style="@style/DetailPriceText"
+                android:text="$ PRICE"
                 android:maxLines="1"
-                android:ellipsize="end"
                 />
 
 
@@ -81,106 +80,100 @@
                 android:id="@+id/product_detail_quantity_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Stock disponible:"
                 app:layout_constraintTop_toBottomOf="@id/product_detail_price"
                 app:layout_constraintStart_toStartOf="parent"
-                android:paddingStart="@dimen/text_padding_h"
+                android:layout_marginStart="@dimen/universal_margin_layout_h"
 
-                android:layout_marginVertical="18dp"
+                android:layout_marginVertical="@dimen/gap_h_large"
 
-                android:fontFamily="@font/proximanova_regular"
-                android:textSize="16sp"
+                style="@style/DetailLabelSmall"
+                android:text="@string/fragment_detail_quantity_label"
                 />
             <TextView
                 android:id="@+id/product_detail_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="QUANTITY"
                 app:layout_constraintTop_toTopOf="@id/product_detail_quantity_label"
                 app:layout_constraintBottom_toBottomOf="@id/product_detail_quantity_label"
                 app:layout_constraintStart_toEndOf="@id/product_detail_quantity_label"
-                android:paddingStart="6dp"
 
-
-                android:fontFamily="@font/proximanova_semibold"
-                android:textSize="16sp"
+                style="@style/DetailContentTextSmall"
+                android:text="QUANTITY"
                 />
 
             <TextView
                 android:id="@+id/product_detail_seller_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vendido por "
                 app:layout_constraintTop_toBottomOf="@id/product_detail_quantity_label"
                 app:layout_constraintStart_toStartOf="parent"
-                android:paddingStart="@dimen/text_padding_h"
+                android:layout_marginStart="@dimen/universal_margin_layout_h"
 
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/gap_v_small"
 
-                android:fontFamily="@font/proximanova_regular"
-                android:textSize="16sp"
+                style="@style/DetailLabelSmall"
+                android:text="@string/fragment_detail_seller_label"
                 />
             <TextView
                 android:id="@+id/product_detail_seller"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="SELLER_NAME"
                 app:layout_constraintTop_toTopOf="@id/product_detail_seller_label"
                 app:layout_constraintBottom_toBottomOf="@id/product_detail_seller_label"
                 app:layout_constraintStart_toEndOf="@id/product_detail_seller_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/universal_margin_layout_h"
 
-
-                android:fontFamily="@font/proximanova_semibold"
-                android:textSize="16sp"
+                style="@style/DetailContentTextSmall"
+                android:text="SELLER_NAME"
                 />
 
             <TextView
                 android:id="@+id/product_detail_address"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="CITY, STATE"
                 app:layout_constraintTop_toBottomOf="@id/product_detail_seller_label"
                 app:layout_constraintStart_toStartOf="parent"
-                android:paddingStart="@dimen/text_padding_h"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/universal_margin_layout_h"
 
                 android:layout_marginTop="2dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="@dimen/gap_h_medium"
 
-                android:fontFamily="@font/proximanova_light"
-                android:textSize="14sp"
+                style="@style/DetailAddressSmall"
+                android:text="CITY, STATE"
                 />
 
             <TextView
                 android:id="@+id/product_detail_description_label"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Descripción"
                 app:layout_constraintTop_toBottomOf="@id/product_detail_address"
                 app:layout_constraintStart_toStartOf="parent"
-                android:paddingHorizontal="@dimen/text_padding_h"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/universal_margin_layout_h"
 
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="@dimen/gap_v_medium"
 
-                android:fontFamily="@font/proximanova_regular"
-                android:textSize="22sp"
+                style="@style/DetailLabelLarge"
+                android:text="@string/fragment_detail_description_label"
                 />
 
             <TextView
                 android:id="@+id/product_detail_description"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="DESCRIPTION PLACEHOLDER"
                 app:layout_constraintTop_toBottomOf="@id/product_detail_description_label"
                 app:layout_constraintStart_toStartOf="parent"
-                android:paddingHorizontal="@dimen/text_padding_h"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/universal_margin_layout_h"
 
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginTop="@dimen/gap_v_small"
+                android:layout_marginBottom="@dimen/gap_v_medium"
 
-                android:fontFamily="@font/proximanova_light"
-                android:textSize="18sp"
+                style="@style/DetailDescriptionText"
+                android:text="DESCRIPTION PLACEHOLDER"
                 android:maxLines="50"
-                android:ellipsize="end"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
