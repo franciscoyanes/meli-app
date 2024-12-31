@@ -7,6 +7,8 @@ data class ProductListingItem(
     val title: String,
     val thumbnail: String,
     val stateName: String,
+    val city: String,
     val sellerNickname: String,
-    val price: Float
+    val price: Float,
+    val quantity: Long
 ) : Serializable

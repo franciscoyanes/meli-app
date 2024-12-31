@@ -11,6 +11,7 @@ import coil3.request.crossfade
 import com.fran.meliapp.common.util.StringUtils
 import com.fran.meliapp.databinding.FragmentProductDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 @AndroidEntryPoint
 class ProductDetailFragment : Fragment() {
@@ -32,12 +33,22 @@ class ProductDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.product.observe(viewLifecycleOwner) { product ->
-            binding.productDetailTitle.text = product.title
-            binding.productDetailPrice.text = StringUtils.floatToPriceString(product.price)
-            binding.productDetailImg.load(
-                product.thumbnail.replace("http://", "https://")
-            ) {
-                crossfade(true)
+            binding.apply {
+                productDetailTitle.text = product.title
+                productDetailPrice.text = StringUtils.floatToPriceString(product.price)
+                productDetailImg.load(
+                    product.thumbnail.replace("http://", "https://")
+                ) {
+                    crossfade(true)
+                }
+                productDetailQuantity.text = String.format(Locale.US, "%d", product.quantity)
+                productDetailSeller.text = product.sellerNickname
+                productDetailAddress.text = String.format(
+                    Locale.US,
+                    "%s, %s",
+                    product.city,
+                    product.stateName
+                )
             }
         }
         viewModel.productDescription.observe(viewLifecycleOwner) { description ->

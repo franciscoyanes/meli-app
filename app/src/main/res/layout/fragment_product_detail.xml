@@ -79,7 +79,7 @@
                 android:layout_marginVertical="18dp"
 
                 android:fontFamily="@font/proximanova_regular"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 />
             <TextView
                 android:id="@+id/product_detail_quantity"
@@ -93,7 +93,7 @@
 
 
                 android:fontFamily="@font/proximanova_semibold"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 />
 
             <TextView
@@ -108,7 +108,7 @@
                 android:layout_marginTop="8dp"
 
                 android:fontFamily="@font/proximanova_regular"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 />
             <TextView
                 android:id="@+id/product_detail_seller"
@@ -121,7 +121,7 @@
 
 
                 android:fontFamily="@font/proximanova_semibold"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 />
 
             <TextView
@@ -137,7 +137,7 @@
                 android:layout_marginBottom="8dp"
 
                 android:fontFamily="@font/proximanova_light"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 />
 
             <TextView
@@ -149,7 +149,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:paddingHorizontal="@dimen/text_padding_h"
 
-                android:layout_marginVertical="18dp"
+                android:layout_marginTop="18dp"
 
                 android:fontFamily="@font/proximanova_regular"
                 android:textSize="22sp"
@@ -164,18 +164,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:paddingHorizontal="@dimen/text_padding_h"
 
-                android:layout_marginVertical="18dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="18dp"
 
                 android:fontFamily="@font/proximanova_light"
                 android:textSize="18sp"
-                android:maxLines="15"
+                android:maxLines="50"
                 android:ellipsize="end"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

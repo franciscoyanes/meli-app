@@ -19,6 +19,8 @@ data class ProductDto(
     val address: Address,
     @SerializedName("seller")
     val seller: Seller,
+    @SerializedName("available_quantity")
+    val quantity: Long
 //    @SerializedName("currency_id")
 //    val currencyId: String,
 //    @SerializedName("available_quantity")
@@ -97,7 +99,9 @@ data class ProductDto(
 
     data class Address(
         @SerializedName("state_name")
-        val stateName: String
+        val stateName: String,
+        @SerializedName("city_name")
+        val cityName: String
     )
 
     data class Seller(
@@ -112,7 +116,9 @@ fun ProductDto.toProduct(): ProductListingItem {
         title = title,
         thumbnail = thumbnail,
         stateName = address.stateName,
+        city = address.cityName,
         sellerNickname = seller.nickname,
-        price = price
+        price = price,
+        quantity = quantity
     )
 }
