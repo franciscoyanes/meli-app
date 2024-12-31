@@ -5,8 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.product_detail.ProductDetailFragment"
-
-    android:paddingHorizontal="18dp"
     >
 
     <TextView
@@ -16,6 +14,7 @@
         android:text="TITLE PLACEHOLDER"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal="@dimen/text_padding_h"
 
         android:layout_marginVertical="18dp"
 
@@ -44,6 +43,7 @@
         android:text="$ PRICE"
         app:layout_constraintTop_toBottomOf="@id/product_detail_img"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal="@dimen/text_padding_h"
 
         android:layout_marginVertical="18dp"
 
@@ -60,6 +60,7 @@
         android:text="Descripción"
         app:layout_constraintTop_toBottomOf="@id/product_detail_price"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal="@dimen/text_padding_h"
 
         android:layout_marginVertical="18dp"
 
@@ -74,6 +75,7 @@
         android:text="DESCRIPTION PLACEHOLDER"
         app:layout_constraintTop_toBottomOf="@id/product_detail_description_label"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal="@dimen/text_padding_h"
 
         android:layout_marginVertical="18dp"
 
