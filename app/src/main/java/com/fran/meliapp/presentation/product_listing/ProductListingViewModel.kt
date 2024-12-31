@@ -32,13 +32,12 @@ class ProductListingViewModel @Inject constructor(
             when(result) {
                 is Resource.Success -> {
                     _productsLiveData.value = result.data ?: emptyList()
-
                 }
                 is Resource.Error -> {
 
                 }
                 is Resource.Loading -> {
-
+                    _productsLiveData.value = emptyList()
                 }
             }
         }.launchIn(viewModelScope)

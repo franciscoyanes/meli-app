@@ -10,5 +10,10 @@
     <color name="black_mine_shaft">#333333</color>
     <color name="gray_gallery">#EDEDED</color>
     <color name="gray_silver_chalice">#ADADAD</color>
+    <color name="blue_star">#3483FA</color>
+
+<!--  System Colors  -->
+    <color name="gray_shimmer_light">#DFDFDF</color>
+    <color name="gray_shimmer_dark">#BCBCBC</color>
 
 </resources>

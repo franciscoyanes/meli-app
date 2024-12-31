@@ -35,15 +35,20 @@ class ProductListingFragment : Fragment() {
 
         viewModel.productsLiveData.observe(viewLifecycleOwner) { products ->
             adapter = ProductListingAdapter(products)
-            binding.productListingRv.adapter = adapter
-            binding.productListingRv.layoutManager = GridLayoutManager(
-                requireContext(), 2, GridLayoutManager.VERTICAL, false)
+            binding.productListingRv.setAdapter(adapter)
+            binding.productListingRv.setLayoutManager(GridLayoutManager(
+                requireContext(), 2, GridLayoutManager.VERTICAL, false))
             adapter.setOnItemClickListener {
                 val bundle = Bundle().apply {
                     putSerializable("product", it)
                 }
                 findNavController()
                     .navigate(R.id.action_productListingFragment_to_productDetailFragment, bundle)
+            }
+            if (products.isEmpty()) {
+                binding.productListingRv.addVeiledItems(6)
+            } else {
+                binding.productListingRv.unVeil()
             }
         }
     }
