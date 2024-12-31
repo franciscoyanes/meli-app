@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/productListingFragment">
+    app:startDestination="@id/productSearchFragment">
 
     <fragment
         android:id="@+id/productListingFragment"
         android:name="com.fran.meliapp.presentation.product_listing.ProductListingFragment"
         android:label="fragment_product_listing"
-        tools:layout="@layout/fragment_product_listing" >
+        tools:layout="@layout/fragment_product_listing">
         <action
             android:id="@+id/action_productListingFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment"
@@ -20,5 +20,14 @@
         android:name="com.fran.meliapp.presentation.product_detail.ProductDetailFragment"
         android:label="fragment_product_detail"
         tools:layout="@layout/fragment_product_detail" />
+    <fragment
+        android:id="@+id/productSearchFragment"
+        android:name="com.fran.meliapp.presentation.product_search.ProductSearchFragment"
+        android:label="fragment_product_search"
+        tools:layout="@layout/fragment_product_search">
+        <action
+            android:id="@+id/action_productSearchFragment_to_productListingFragment"
+            app:destination="@id/productListingFragment" />
+    </fragment>
 
 </navigation>
