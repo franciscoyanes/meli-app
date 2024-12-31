@@ -44,4 +44,9 @@ class ProductDetailFragment : Fragment() {
             binding.productDetailDescription.text = description
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
