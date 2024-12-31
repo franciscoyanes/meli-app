@@ -108,6 +108,7 @@ data class ProductDto(
 
 fun ProductDto.toProduct(): ProductListingItem {
     return ProductListingItem(
+        id = id,
         title = title,
         thumbnail = thumbnail,
         stateName = address.stateName,
