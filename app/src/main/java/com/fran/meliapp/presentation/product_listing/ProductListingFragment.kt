@@ -39,7 +39,6 @@ class ProductListingFragment : Fragment() {
             binding.productListingRv.layoutManager = GridLayoutManager(
                 requireContext(), 2, GridLayoutManager.VERTICAL, false)
             adapter.setOnItemClickListener {
-                Toast.makeText(requireContext(), "CLICK", Toast.LENGTH_SHORT).show()
                 val bundle = Bundle().apply {
                     putSerializable("product", it)
                 }
@@ -47,28 +46,6 @@ class ProductListingFragment : Fragment() {
                     .navigate(R.id.action_productListingFragment_to_productDetailFragment, bundle)
             }
         }
-
-//
-//        var productList = mutableListOf(
-//            ProductListingItem("Producto 1"),
-//            ProductListingItem("Producto 2"),
-//            ProductListingItem("Producto 3"),
-//            ProductListingItem("Producto 4"),
-//            ProductListingItem("Producto 5"),
-//            ProductListingItem("Producto 6"),
-//            ProductListingItem("Producto 7"),
-//            ProductListingItem("Producto 8"),
-//            ProductListingItem("Producto 9"),
-//            ProductListingItem("Producto 10"),
-//            ProductListingItem("Producto 11"),
-//            ProductListingItem("Producto 12"),
-//            ProductListingItem("Producto 13"),
-//            ProductListingItem("Producto 14"),
-//            ProductListingItem("Producto 15"),
-//        )
-//        val adapter = ProductListingAdapter(productList)
-//        binding.productListingRv.adapter = adapter
-//        binding.productListingRv.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onDestroyView() {

@@ -2,12 +2,10 @@ package com.fran.meliapp.presentation.product_listing
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fran.meliapp.common.Resource
 import com.fran.meliapp.data.domain.model.ProductListingItem
-import com.fran.meliapp.domain.repository.ProductRepository
 import com.fran.meliapp.domain.use_case.SearchProductUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn

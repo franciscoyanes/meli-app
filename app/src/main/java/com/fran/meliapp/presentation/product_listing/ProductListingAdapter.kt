@@ -8,7 +8,6 @@ import coil3.request.crossfade
 import com.fran.meliapp.common.util.StringUtils
 import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.databinding.ViewProductListingItemBinding
-import java.util.Locale
 
 class ProductListingAdapter(
     private var productList: List<ProductListingItem>
