@@ -7,82 +7,175 @@
     tools:context=".presentation.product_detail.ProductDetailFragment"
     >
 
-    <TextView
-        android:id="@+id/product_detail_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TITLE PLACEHOLDER"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:paddingHorizontal="@dimen/text_padding_h"
-
-        android:layout_marginVertical="18dp"
-
-        android:fontFamily="@font/proximanova_regular"
-        android:textSize="18sp"
-        android:maxLines="3"
-        android:ellipsize="end"
-        />
-
-    <ImageView
-        android:id="@+id/product_detail_img"
+    <ScrollView
+        android:id="@+id/product_detail_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="H,1:1"
-        app:layout_constraintTop_toBottomOf="@id/product_detail_title"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:scaleType="centerCrop"
-        android:layout_marginVertical="18dp"
-        />
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/product_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TITLE PLACEHOLDER"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingHorizontal="@dimen/text_padding_h"
 
-    <TextView
-        android:id="@+id/product_detail_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="$ PRICE"
-        app:layout_constraintTop_toBottomOf="@id/product_detail_img"
-        app:layout_constraintStart_toStartOf="parent"
-        android:paddingHorizontal="@dimen/text_padding_h"
+                android:layout_marginVertical="18dp"
 
-        android:layout_marginVertical="18dp"
+                android:fontFamily="@font/proximanova_regular"
+                android:textSize="18sp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                />
 
-        android:fontFamily="@font/proximanova_regular"
-        android:textSize="24sp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        />
+            <ImageView
+                android:id="@+id/product_detail_img"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintTop_toBottomOf="@id/product_detail_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:scaleType="centerCrop"
+                android:layout_marginVertical="18dp"
+                />
 
-    <TextView
-        android:id="@+id/product_detail_description_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Descripción"
-        app:layout_constraintTop_toBottomOf="@id/product_detail_price"
-        app:layout_constraintStart_toStartOf="parent"
-        android:paddingHorizontal="@dimen/text_padding_h"
+            <TextView
+                android:id="@+id/product_detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$ PRICE"
+                app:layout_constraintTop_toBottomOf="@id/product_detail_img"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingHorizontal="@dimen/text_padding_h"
 
-        android:layout_marginVertical="18dp"
+                android:layout_marginVertical="18dp"
 
-        android:fontFamily="@font/proximanova_regular"
-        android:textSize="18sp"
-        />
+                android:fontFamily="@font/proximanova_regular"
+                android:textSize="38sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                />
 
-    <TextView
-        android:id="@+id/product_detail_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DESCRIPTION PLACEHOLDER"
-        app:layout_constraintTop_toBottomOf="@id/product_detail_description_label"
-        app:layout_constraintStart_toStartOf="parent"
-        android:paddingHorizontal="@dimen/text_padding_h"
 
-        android:layout_marginVertical="18dp"
+            <TextView
+                android:id="@+id/product_detail_quantity_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stock disponible:"
+                app:layout_constraintTop_toBottomOf="@id/product_detail_price"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingStart="@dimen/text_padding_h"
 
-        android:fontFamily="@font/proximanova_light"
-        android:textSize="12sp"
-        android:maxLines="15"
-        android:ellipsize="end"
-        />
+                android:layout_marginVertical="18dp"
+
+                android:fontFamily="@font/proximanova_regular"
+                android:textSize="14sp"
+                />
+            <TextView
+                android:id="@+id/product_detail_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="QUANTITY"
+                app:layout_constraintTop_toTopOf="@id/product_detail_quantity_label"
+                app:layout_constraintBottom_toBottomOf="@id/product_detail_quantity_label"
+                app:layout_constraintStart_toEndOf="@id/product_detail_quantity_label"
+                android:paddingStart="6dp"
+
+
+                android:fontFamily="@font/proximanova_semibold"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/product_detail_seller_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vendido por "
+                app:layout_constraintTop_toBottomOf="@id/product_detail_quantity_label"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingStart="@dimen/text_padding_h"
+
+                android:layout_marginTop="8dp"
+
+                android:fontFamily="@font/proximanova_regular"
+                android:textSize="14sp"
+                />
+            <TextView
+                android:id="@+id/product_detail_seller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SELLER_NAME"
+                app:layout_constraintTop_toTopOf="@id/product_detail_seller_label"
+                app:layout_constraintBottom_toBottomOf="@id/product_detail_seller_label"
+                app:layout_constraintStart_toEndOf="@id/product_detail_seller_label"
+
+
+                android:fontFamily="@font/proximanova_semibold"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/product_detail_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CITY, STATE"
+                app:layout_constraintTop_toBottomOf="@id/product_detail_seller_label"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingStart="@dimen/text_padding_h"
+
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp"
+
+                android:fontFamily="@font/proximanova_light"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:id="@+id/product_detail_description_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripción"
+                app:layout_constraintTop_toBottomOf="@id/product_detail_address"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingHorizontal="@dimen/text_padding_h"
+
+                android:layout_marginVertical="18dp"
+
+                android:fontFamily="@font/proximanova_regular"
+                android:textSize="22sp"
+                />
+
+            <TextView
+                android:id="@+id/product_detail_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DESCRIPTION PLACEHOLDER"
+                app:layout_constraintTop_toBottomOf="@id/product_detail_description_label"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingHorizontal="@dimen/text_padding_h"
+
+                android:layout_marginVertical="18dp"
+
+                android:fontFamily="@font/proximanova_light"
+                android:textSize="18sp"
+                android:maxLines="15"
+                android:ellipsize="end"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
