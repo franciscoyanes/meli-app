@@ -5,5 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.MeliApp" parent="Base.Theme.MeliApp" />
+    <style name="Theme.MeliApp" parent="Base.Theme.MeliApp" >
+        <item name="android:windowBackground">@color/yellow_gold</item>
+    </style>
 </resources>
