@@ -52,7 +52,12 @@ class ProductDetailFragment : Fragment() {
             }
         }
         viewModel.productDescription.observe(viewLifecycleOwner) { description ->
-            binding.productDetailDescription.text = description
+            if (description.isEmpty()) {
+                binding.root.veil()
+            } else {
+                binding.root.unVeil()
+                binding.productDetailDescription.text = description
+            }
         }
     }
 

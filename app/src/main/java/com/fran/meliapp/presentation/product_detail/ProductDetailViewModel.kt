@@ -22,7 +22,7 @@ class ProductDetailViewModel @Inject constructor(
 
     private val _product = savedStateHandle.getLiveData<ProductListingItem>("product")
     val product: LiveData<ProductListingItem> = _product
-    private val _productDescription = MutableLiveData<String>()
+    private val _productDescription = MutableLiveData<String>("")
     val productDescription: LiveData<String> = _productDescription
 
     init {
