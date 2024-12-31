@@ -2,9 +2,7 @@ package com.fran.meliapp.presentation.product_search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.fran.meliapp.data.domain.model.ProductListingItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

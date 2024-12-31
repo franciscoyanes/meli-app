@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.fran.meliapp.common.Constants
 import com.fran.meliapp.common.Resource
 import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.domain.use_case.SearchProductUseCase
@@ -23,7 +24,7 @@ class ProductListingViewModel @Inject constructor(
     val productsLiveData: LiveData<List<ProductListingItem>> = _productsLiveData
 
     init {
-        val queryString = savedStateHandle.get<String>("queryString")
+        val queryString = savedStateHandle.get<String>(Constants.QUERY_ID)
         fetchProducts(queryString!!)
     }
 

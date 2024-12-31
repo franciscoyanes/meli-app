@@ -1,5 +1,6 @@
 package com.fran.meliapp.domain.use_case
 
+import com.fran.meliapp.common.Constants
 import com.fran.meliapp.common.Resource
 import com.fran.meliapp.data.domain.model.ProductDescription
 import com.fran.meliapp.domain.repository.ProductRepository
@@ -19,9 +20,9 @@ class GetProductDetailUseCase @Inject constructor(
             val productDescription = repository.getProductDescription(productId)
             emit(Resource.Success(productDescription))
         } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "Unexpected error occurred"))
+            emit(Resource.Error(e.localizedMessage ?: Constants.GENERIC_HTTP_ERROR_MSG))
         } catch (e: IOException) {
-            emit(Resource.Error("Couldn't reach server"))
+            emit(Resource.Error(Constants.GENERIC_IO_ERROR_MSG))
         }
     }
 }
