@@ -2,6 +2,7 @@ package com.fran.meliapp.presentation.product_listing
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fran.meliapp.common.Resource
@@ -14,14 +15,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProductListingViewModel @Inject constructor(
-    private val searchProductUseCase: SearchProductUseCase
+    private val searchProductUseCase: SearchProductUseCase,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _productsLiveData = MutableLiveData<List<ProductListingItem>>()
     val productsLiveData: LiveData<List<ProductListingItem>> = _productsLiveData
 
     init {
-        fetchProducts("Motorola 6G")
+        val queryString = savedStateHandle.get<String>("queryString")
+        fetchProducts(queryString!!)
     }
 
     private fun fetchProducts(query: String) {
