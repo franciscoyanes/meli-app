@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.fran.meliapp.R
 import com.fran.meliapp.databinding.FragmentProductSearchBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,12 +23,21 @@ class ProductSearchFragment : Fragment() {
 
     private val viewModel: ProductSearchViewModel by viewModels()
 
+    private lateinit var emptyQueryDialog: AlertDialog
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProductSearchBinding.inflate(inflater, container, false)
+        emptyQueryDialog = MaterialAlertDialogBuilder(requireContext())
+            .setTitle(resources.getString(R.string.fragment_search_dialog_title))
+            .setMessage(resources.getString(R.string.fragment_search_dialog_message))
+            .setPositiveButton(resources.getString(R.string.fragment_search_dialog_ok)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
         return binding.root
     }
 
@@ -39,6 +50,7 @@ class ProductSearchFragment : Fragment() {
 //
 //        }
         setSearchActionEventListener()
+
     }
 
     override fun onDestroyView() {
@@ -59,9 +71,9 @@ class ProductSearchFragment : Fragment() {
                             R.id.action_productSearchFragment_to_productListingFragment,
                             bundle
                         )
-                    } else {
-                        Toast.makeText(requireContext(),
-                            "CAMPO DE BUSQUEDA VACIO", Toast.LENGTH_LONG).show()
+                    } else if (!emptyQueryDialog.isShowing) {
+                        emptyQueryDialog.show()
+                        root.findFocus().clearFocus()
                     }
                 }
                 true

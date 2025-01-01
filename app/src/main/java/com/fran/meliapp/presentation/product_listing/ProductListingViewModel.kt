@@ -23,19 +23,23 @@ class ProductListingViewModel @Inject constructor(
     private val _productsLiveData = MutableLiveData<List<ProductListingItem>>()
     val productsLiveData: LiveData<List<ProductListingItem>> = _productsLiveData
 
+    private val _loadingFinished = MutableLiveData(false)
+    val loadingFinished: LiveData<Boolean> = _loadingFinished
+
     init {
         val queryString = savedStateHandle.get<String>(Constants.QUERY_ID)
         fetchProducts(queryString!!)
     }
 
     private fun fetchProducts(query: String) {
+        _loadingFinished.value = false
         searchProductUseCase(query).onEach { result ->
             when(result) {
                 is Resource.Success -> {
                     _productsLiveData.value = result.data ?: emptyList()
                 }
                 is Resource.Error -> {
-
+                    _loadingFinished.value = true
                 }
                 is Resource.Loading -> {
                     _productsLiveData.value = emptyList()

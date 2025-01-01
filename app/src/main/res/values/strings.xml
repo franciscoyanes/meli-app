@@ -2,12 +2,19 @@
     <string name="app_name">MeliApp</string>
 
 <!--  Fragment  -->
-    <string name="fragment_detail_description_label">Descripción</string>
+    <string name="fragment_search_hint">Buscar en Mercado Libre</string>
+    <string name="fragment_search_dialog_title">Advertencia</string>
+    <string name="fragment_search_dialog_message">El campo de búsqueda no puede estar vacío.</string>
+    <string name="fragment_search_dialog_ok">Entiendo</string>
+
+    <string name="fragment_listing_item_seller_label">Vendedor:</string>
+    <string name="fragment_listing_empty_search_message">No encontramos publicaciones</string>
+    <string name="fragment_listing_empty_search_hint">Revisá que la palabra esté bien escrita.</string>
+
     <string name="fragment_detail_seller_label">Vendido por&#160;</string>
     <string name="fragment_detail_quantity_label">Stock disponible:&#160;</string>
-    <string name="fragment_search_hint">Buscar en Mercado Libre</string>
-    <string name="fragment_listing_item_seller_label">Vendedor:</string>
+    <string name="fragment_detail_description_label">Descripción</string>
 
-<!--  Error  -->
+    <!--  Error  -->
 
 </resources>
