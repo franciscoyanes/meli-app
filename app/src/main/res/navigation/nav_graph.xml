@@ -13,7 +13,11 @@
         <action
             android:id="@+id/action_productListingFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment"
-            app:enterAnim="@anim/nav_default_pop_enter_anim" />
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/productListingFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailFragment"
@@ -27,7 +31,12 @@
         tools:layout="@layout/fragment_product_search">
         <action
             android:id="@+id/action_productSearchFragment_to_productListingFragment"
-            app:destination="@id/productListingFragment" />
+            app:destination="@id/productListingFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/productSearchFragment" />
     </fragment>
 
 </navigation>
