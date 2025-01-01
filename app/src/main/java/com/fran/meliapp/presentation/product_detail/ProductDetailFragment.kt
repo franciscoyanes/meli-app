@@ -42,7 +42,7 @@ class ProductDetailFragment : Fragment() {
                     product.thumbnail.replace("http://", "https://")
                 ) {
                     crossfade(true)
-                    error(android.R.drawable.stat_notify_error)
+//                    error(android.R.drawable.stat_notify_error) // TODO: fix bug
                 }
                 productDetailQuantity.text = String.format(Locale.US, "%d", product.quantity)
                     .ifEmpty { Constants.EMPTY_DATA_MSG }
