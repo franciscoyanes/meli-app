@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil3.load
 import coil3.request.crossfade
+import coil3.request.error
 import com.fran.meliapp.common.util.StringUtils
 import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.databinding.ViewProductListingItemBinding
@@ -42,6 +43,7 @@ class ProductListingAdapter(
                 productItem.thumbnail.replace("http://", "https://")
             ) {
                 crossfade(true)
+                error(android.R.drawable.stat_notify_error)
             }
             root.setOnClickListener {
                 onItemClickListener?.let { it(productItem) }
