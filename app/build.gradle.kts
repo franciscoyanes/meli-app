@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
+    testImplementation(libs.junit.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.recyclerview:recyclerview:1.3.2")
@@ -89,6 +90,15 @@ dependencies {
     // Veil
     implementation("com.github.skydoves:androidveil:1.1.4")
 
+    // Local Unit Tests
+    testImplementation(libs.google.truth)
+    testImplementation("io.mockk:mockk-android:1.13.14")
+    testImplementation("io.mockk:mockk-agent:1.13.14")
+
+    // Instrumented Unit Tests
+    androidTestImplementation(libs.google.truth)
+    androidTestImplementation("io.mockk:mockk-android:1.13.14")
+    androidTestImplementation("io.mockk:mockk-agent:1.13.14")
 }
 
 // Allow references to generated code
