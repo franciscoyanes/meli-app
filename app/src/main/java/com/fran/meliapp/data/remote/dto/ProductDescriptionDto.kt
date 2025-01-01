@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class ProductDescriptionDto(
     @SerializedName("plain_text")
-    val description: String
+    val description: String?
 )
 
 fun ProductDescriptionDto.toProductDescription(): ProductDescription {
     return ProductDescription(
-        description = description
+        description = description ?: ""
     )
 }
