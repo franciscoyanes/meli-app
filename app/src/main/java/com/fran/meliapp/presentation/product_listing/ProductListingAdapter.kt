@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil3.load
 import coil3.request.crossfade
 import coil3.request.error
+import com.fran.meliapp.common.Constants
 import com.fran.meliapp.common.util.StringUtils
 import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.databinding.ViewProductListingItemBinding
@@ -33,10 +34,10 @@ class ProductListingAdapter(
     override fun onBindViewHolder(holder: ProductListingViewHolder, position: Int) {
         holder.binding.apply {
             val productItem = productList[position]
-            productItemTitle.text = productItem.title
-            productItemSellerName.text = productItem.sellerNickname
-            productItemSellerAddress.text = productItem.stateName
-            productItemPrice.text = StringUtils.floatToPriceString(productItem.price)
+            productItemTitle.text = productItem.title.ifEmpty { Constants.EMPTY_DATA_MSG }
+            productItemSellerName.text = productItem.sellerNickname.ifEmpty { Constants.EMPTY_DATA_MSG }
+            productItemSellerAddress.text = productItem.stateName.ifEmpty { Constants.EMPTY_DATA_MSG }
+            productItemPrice.text = StringUtils.floatToPriceString(productItem.price).ifEmpty { Constants.EMPTY_DATA_MSG }
             productItemImg.load(
                 // This is necessary because Coil client doesn't support unsecure calls.
                 // TODO: Loading and error icons

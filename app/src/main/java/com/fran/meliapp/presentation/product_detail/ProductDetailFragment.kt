@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.load
 import coil3.request.crossfade
+import com.fran.meliapp.common.Constants
 import com.fran.meliapp.common.util.StringUtils
 import com.fran.meliapp.databinding.FragmentProductDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,21 +35,24 @@ class ProductDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.product.observe(viewLifecycleOwner) { product ->
             binding.apply {
-                productDetailTitle.text = product.title
+                productDetailTitle.text = product.title.ifEmpty { Constants.EMPTY_DATA_MSG }
                 productDetailPrice.text = StringUtils.floatToPriceString(product.price)
+                    .ifEmpty { Constants.EMPTY_DATA_MSG }
                 productDetailImg.load(
                     product.thumbnail.replace("http://", "https://")
                 ) {
                     crossfade(true)
+                    error(android.R.drawable.stat_notify_error)
                 }
                 productDetailQuantity.text = String.format(Locale.US, "%d", product.quantity)
-                productDetailSeller.text = product.sellerNickname
+                    .ifEmpty { Constants.EMPTY_DATA_MSG }
+                productDetailSeller.text = product.sellerNickname.ifEmpty { Constants.EMPTY_DATA_MSG }
                 productDetailAddress.text = String.format(
                     Locale.US,
                     "%s, %s",
                     product.city,
                     product.stateName
-                )
+                ).ifEmpty { Constants.EMPTY_DATA_MSG }
             }
         }
         viewModel.productDescription.observe(viewLifecycleOwner) { description ->
