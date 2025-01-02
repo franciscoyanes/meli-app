@@ -49,10 +49,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    testImplementation(libs.junit)
-    testImplementation(libs.junit.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.activity:activity-ktx:1.9.3")
     implementation("androidx.fragment:fragment-ktx:1.8.5")
@@ -70,12 +66,6 @@ dependencies {
     // Dagger - Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-    // For instrumentation tests
-    androidTestImplementation(libs.hilt.android.testing)
-    kaptAndroidTest(libs.hilt.compiler)
-    // For local unit tests
-    testImplementation(libs.hilt.android.testing)
-    kaptTest(libs.hilt.compiler)
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -90,15 +80,24 @@ dependencies {
     // Veil
     implementation("com.github.skydoves:androidveil:1.1.4")
 
-    // Local Unit Tests
-    testImplementation(libs.google.truth)
-    testImplementation("io.mockk:mockk-android:1.13.14")
-    testImplementation("io.mockk:mockk-agent:1.13.14")
+    // Test
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    // Instrumented Unit Tests
-    androidTestImplementation(libs.google.truth)
-    androidTestImplementation("io.mockk:mockk-android:1.13.14")
-    androidTestImplementation("io.mockk:mockk-agent:1.13.14")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.3")
+
+    // ===
+    testImplementation("com.willowtreeapps.assertk:assertk:0.26.1")
+    testImplementation("io.mockk:mockk:1.12.5")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+    // Android test
+    androidTestImplementation("io.mockk:mockk-android:1.12.5")
 }
 
 // Allow references to generated code
