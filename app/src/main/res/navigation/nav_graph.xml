@@ -6,27 +6,33 @@
     app:startDestination="@id/productSearchFragment">
 
     <fragment
-        android:id="@+id/productListingFragment"
-        android:name="com.fran.meliapp.presentation.product_listing.ProductListingFragment"
-        android:label="fragment_product_listing"
-        tools:layout="@layout/fragment_product_listing">
-        <action
-            android:id="@+id/action_productListingFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment"/>
-    </fragment>
-    <fragment
-        android:id="@+id/productDetailFragment"
-        android:name="com.fran.meliapp.presentation.product_detail.ProductDetailFragment"
-        android:label="fragment_product_detail"
-        tools:layout="@layout/fragment_product_detail" />
-    <fragment
         android:id="@+id/productSearchFragment"
         android:name="com.fran.meliapp.presentation.product_search.ProductSearchFragment"
         android:label="fragment_product_search"
         tools:layout="@layout/fragment_product_search">
         <action
             android:id="@+id/action_productSearchFragment_to_productListingFragment"
-            app:destination="@id/productListingFragment"/>
+            app:destination="@id/productListingFragment"
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/productListingFragment"
+        android:name="com.fran.meliapp.presentation.product_listing.ProductListingFragment"
+        android:label="fragment_product_listing"
+        tools:layout="@layout/fragment_product_listing">
+        <action
+            android:id="@+id/action_productListingFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment"
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.fran.meliapp.presentation.product_detail.ProductDetailFragment"
+        android:label="fragment_product_detail"
+        tools:layout="@layout/fragment_product_detail" />
 
 </navigation>
