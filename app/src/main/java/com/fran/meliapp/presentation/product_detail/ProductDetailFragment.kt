@@ -55,12 +55,13 @@ class ProductDetailFragment : Fragment() {
                 ).ifEmpty { Constants.EMPTY_DATA_MSG }
             }
         }
-        viewModel.productDescription.observe(viewLifecycleOwner) { description ->
-            if (description.isEmpty()) {
-                binding.root.veil()
-            } else {
+        viewModel.loadingFinished.observe(viewLifecycleOwner) { isFinished ->
+            if (isFinished) {
+                val descriptionString = viewModel.productDescription.value!!
                 binding.root.unVeil()
-                binding.productDetailDescription.text = description
+                binding.productDetailDescription.text = descriptionString.ifEmpty {
+                    Constants.EMPTY_DATA_MSG
+                }
             }
         }
     }

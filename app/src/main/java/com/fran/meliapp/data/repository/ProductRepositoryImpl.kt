@@ -24,7 +24,7 @@ class ProductRepositoryImpl @Inject constructor(
 
     override suspend fun getProductDescription(itemId: String): ProductDescription {
         return api.getProductDescription(itemId).body()?.toProductDescription() ?: ProductDescription(
-            description = "(El vendedor no provee una descripción del producto)"
+            description = ""
         )
     }
 }

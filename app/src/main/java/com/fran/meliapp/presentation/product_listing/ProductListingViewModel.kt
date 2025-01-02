@@ -37,6 +37,7 @@ class ProductListingViewModel @Inject constructor(
             when(result) {
                 is Resource.Success -> {
                     _productsLiveData.value = result.data ?: emptyList()
+                    _loadingFinished.value = true
                 }
                 is Resource.Error -> {
                     _loadingFinished.value = true

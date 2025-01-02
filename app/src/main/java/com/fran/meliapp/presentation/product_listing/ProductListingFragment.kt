@@ -1,12 +1,9 @@
 package com.fran.meliapp.presentation.product_listing
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.ui.res.colorResource
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -58,10 +55,13 @@ class ProductListingFragment : Fragment() {
             } else {
                 binding.productListingRv.unVeil()
             }
-            viewModel.loadingFinished.observe(viewLifecycleOwner) { isFinished ->
-                if (products.isEmpty()) {
+        }
+        viewModel.loadingFinished.observe(viewLifecycleOwner) { isFinished ->
+            if (isFinished) {
+                if (viewModel.productsLiveData.value!!.isEmpty()) {
                     showEmptySearchResult()
                 } else {
+                    hideEmptySearchResult()
                     binding.productListingRv.unVeil()
                 }
             }

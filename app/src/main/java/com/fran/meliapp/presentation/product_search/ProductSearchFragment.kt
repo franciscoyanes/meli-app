@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.fran.meliapp.R
 import com.fran.meliapp.databinding.FragmentProductSearchBinding
@@ -20,8 +18,6 @@ class ProductSearchFragment : Fragment() {
 
     private var _binding: FragmentProductSearchBinding? = null
     private val binding get() = _binding!!
-
-    private val viewModel: ProductSearchViewModel by viewModels()
 
     private lateinit var emptyQueryDialog: AlertDialog
 
@@ -45,12 +41,7 @@ class ProductSearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // Android Views has a bug that focuses Edit Text elements automatically.
         binding.productSearchEditText.clearFocus()
-//        viewModel.setSearchActionEventListener { setSearchActionListener() }
-//        viewModel.searchQuery.observe(viewLifecycleOwner) {
-//
-//        }
         setSearchActionEventListener()
-
     }
 
     override fun onDestroyView() {
@@ -67,10 +58,7 @@ class ProductSearchFragment : Fragment() {
                         val bundle = Bundle().apply {
                             putString("queryString", productSearchEditText.text.toString())
                         }
-                        findNavController().navigate(
-                            R.id.action_productSearchFragment_to_productListingFragment,
-                            bundle
-                        )
+                        navigateToNextFragment(bundle)
                     } else if (!emptyQueryDialog.isShowing) {
                         emptyQueryDialog.show()
                         root.findFocus().clearFocus()
@@ -78,6 +66,16 @@ class ProductSearchFragment : Fragment() {
                 }
                 true
             }
+        }
+    }
+
+    private fun navigateToNextFragment(bundle: Bundle) {
+        val navController = findNavController()
+        if (navController.currentDestination == navController.graph.findNode(R.id.productSearchFragment)) {
+            findNavController().navigate(
+                R.id.action_productSearchFragment_to_productListingFragment,
+                bundle
+            )
         }
     }
 }
