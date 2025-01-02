@@ -1,5 +1,6 @@
 package com.fran.meliapp.domain.use_case
 
+import android.util.Log
 import com.fran.meliapp.common.Constants
 import com.fran.meliapp.common.Resource
 import com.fran.meliapp.data.domain.model.ProductListingItem
@@ -26,9 +27,14 @@ class SearchProductUseCase @Inject constructor(
             val products = repository.searchProducts(query)
             emit(Resource.Success(products))
         } catch (e: HttpException) {
+            Log.e("SearchProductUseCase", e.message, e)
             emit(Resource.Error(e.localizedMessage ?: Constants.GENERIC_HTTP_ERROR_MSG))
         } catch (e: IOException) {
-            emit(Resource.Error(Constants.GENERIC_IO_ERROR_MSG))
+            Log.e("SearchProductUseCase", e.message, e)
+            emit(Resource.Error(e.localizedMessage ?: Constants.GENERIC_IO_ERROR_MSG))
+        } catch (e: RuntimeException) {
+            Log.e("SearchProductUseCase", e.message, e)
+            emit(Resource.Error(e.message ?: Constants.UNKNOWN_ERROR_MSG))
         }
     }
 }
