@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.load
 import coil3.request.crossfade
+import com.fran.meliapp.R
 import com.fran.meliapp.common.Constants
 import com.fran.meliapp.common.util.StringUtils
 import com.fran.meliapp.databinding.FragmentProductDetailBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
@@ -33,6 +35,15 @@ class ProductDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initializeObservers()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun initializeObservers() {
         viewModel.product.observe(viewLifecycleOwner) { product ->
             binding.apply {
                 productDetailTitle.text = product.title.ifEmpty { Constants.EMPTY_DATA_MSG }
@@ -46,7 +57,8 @@ class ProductDetailFragment : Fragment() {
                 }
                 productDetailQuantity.text = String.format(Locale.US, "%d", product.quantity)
                     .ifEmpty { Constants.EMPTY_DATA_MSG }
-                productDetailSeller.text = product.sellerNickname.ifEmpty { Constants.EMPTY_DATA_MSG }
+                productDetailSeller.text =
+                    product.sellerNickname.ifEmpty { Constants.EMPTY_DATA_MSG }
                 productDetailAddress.text = String.format(
                     Locale.US,
                     "%s, %s",
@@ -64,10 +76,14 @@ class ProductDetailFragment : Fragment() {
                 }
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        viewModel.isError.observe(viewLifecycleOwner) { isError ->
+            if (isError) {
+                Snackbar.make(
+                    binding.root,
+                    resources.getString(R.string.fragment_detail_snackbar_message),
+                    Snackbar.LENGTH_INDEFINITE
+                ).setAction(resources.getString(R.string.fragment_listing_snackbar_ok)) {}.show()
+            }
+        }
     }
 }

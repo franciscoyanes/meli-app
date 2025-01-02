@@ -22,10 +22,15 @@ class ProductDetailViewModel @Inject constructor(
 
     private val _product = savedStateHandle.getLiveData<ProductListingItem>("product")
     val product: LiveData<ProductListingItem> = _product
+
     private val _productDescription = MutableLiveData<String>("")
     val productDescription: LiveData<String> = _productDescription
+
     private val _loadingFinished = MutableLiveData(false)
     val loadingFinished: LiveData<Boolean> = _loadingFinished
+
+    private val _isError = MutableLiveData(false)
+    val isError: LiveData<Boolean> = _isError
 
     init {
         fetchProductDescription(product.value!!.id)
@@ -33,19 +38,19 @@ class ProductDetailViewModel @Inject constructor(
 
     private fun fetchProductDescription(productId: String) {
         _loadingFinished.value = false
+        _isError.value = false
         getProductDetailUseCase(productId).onEach { result ->
             when(result) {
                 is Resource.Success -> {
-                    _loadingFinished.value = true
                     val productDescription = result.data as ProductDescription
                     _productDescription.value = productDescription.description
-                }
-                is Resource.Error -> {
                     _loadingFinished.value = true
                 }
-                is Resource.Loading -> {
-
+                is Resource.Error -> {
+                    _isError.value = true
+                    _loadingFinished.value = true
                 }
+                is Resource.Loading -> { }
             }
         }.launchIn(viewModelScope)
     }

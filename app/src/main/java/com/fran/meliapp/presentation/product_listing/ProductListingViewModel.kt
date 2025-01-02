@@ -26,6 +26,9 @@ class ProductListingViewModel @Inject constructor(
     private val _loadingFinished = MutableLiveData(false)
     val loadingFinished: LiveData<Boolean> = _loadingFinished
 
+    private val _isError = MutableLiveData(false)
+    val isError: LiveData<Boolean> = _isError
+
     init {
         val queryString = savedStateHandle.get<String>(Constants.QUERY_ID)
         fetchProducts(queryString!!)
@@ -33,6 +36,7 @@ class ProductListingViewModel @Inject constructor(
 
     private fun fetchProducts(query: String) {
         _loadingFinished.value = false
+        _isError.value = false
         searchProductUseCase(query).onEach { result ->
             when(result) {
                 is Resource.Success -> {
@@ -40,11 +44,9 @@ class ProductListingViewModel @Inject constructor(
                     _loadingFinished.value = true
                 }
                 is Resource.Error -> {
-                    _loadingFinished.value = true
+                    _isError.value = true
                 }
-                is Resource.Loading -> {
-                    _productsLiveData.value = emptyList()
-                }
+                is Resource.Loading -> { }
             }
         }.launchIn(viewModelScope)
         // The invoke function returns a Flow, so we need to launch it in a coroutine because
