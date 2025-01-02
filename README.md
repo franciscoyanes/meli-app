@@ -6,7 +6,7 @@ Esta aplicación es mi resolución para el challenge de Android Mobile. Se pidi�
 
 El desarrollo se hizo siguiendo prácticas las oficialmente recomendadas de [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) y [MVVM](https://www.geeksforgeeks.org/mvvm-model-view-viewmodel-architecture-pattern-in-android/).
 
-#### Tecnologías utilizadas
+### Tecnologías utilizadas
 
 **Desarrollo**:
 
