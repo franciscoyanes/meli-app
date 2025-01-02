@@ -7,7 +7,6 @@ import com.fran.meliapp.data.domain.model.ProductDescription
 import com.fran.meliapp.domain.repository.ProductRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 

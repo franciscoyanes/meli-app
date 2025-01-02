@@ -3,7 +3,6 @@ package com.fran.meliapp.data.repository
 import com.fran.meliapp.data.domain.model.ProductDescription
 import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.domain.repository.ProductRepository
-import java.lang.Exception
 
 class ProductRepositoryFake : ProductRepository {
 

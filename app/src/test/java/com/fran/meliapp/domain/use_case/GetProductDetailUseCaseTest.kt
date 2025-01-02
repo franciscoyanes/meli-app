@@ -4,7 +4,6 @@ import android.util.Log
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import com.fran.meliapp.data.domain.model.ProductDescription
-import com.fran.meliapp.data.domain.model.ProductListingItem
 import com.fran.meliapp.data.repository.ProductRepositoryFake
 import io.mockk.every
 import io.mockk.mockkStatic
