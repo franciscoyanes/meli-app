@@ -15,7 +15,8 @@ El desarrollo se hizo siguiendo las prácticas de [Clean Architecture](https://b
 - **Kotlin Coroutines** para el soporte de programación asíncrona.
 - **Hilt** para la implementación de inyección de dependencias.
 - **Coil** para la carga y cacheo de imágenes remotas.
-- **JUnit4**, **MockK** y **MockWebServer** para el testeo.
+- **JUnit4**, **MockK** y **MockWebServer** para tests unitarios.
+
 ## Instalación
 
 #### Requisitos previos
@@ -42,16 +43,22 @@ En esta pantalla el usuario puede ingresar el nombre o una frase de lo que desea
 
 Al intentar iniciar la búsqueda con un texto vacío no se navegará a la siguiente pantalla sino que se le mostrará al usuario un diálogo de advertencia explicándole que es estrictamente necesario que ingrese un texto para poder avanzar a la siguiente pantalla.
 
-![screen_1.gif](assets/screen_1.gif){ align=center }
+<p align="center">
+    <img src="./assets/screen_1.gif" style="zoom:40%;" />
+</p>
 
 #### 2. Listado de productos
 
 En esta pantalla el usuario recibirá un listado de productos acorde a su búsqueda en forma de catálogo. El catálogo estará compuesto por múltiples cartas mostrando foto y detalles productos. El usuario podrá navegar el catálogo verticalmente y seleccionar la carta del producto del que quiera ver mas detalles. Al presionar sobre la carta de un producto el usuario es llevado a la siguiente y ultima pantalla.
 
-![screen_2.gif](assets/screen_1.gif){ align=center }
+<p align="center">
+    <img src="./assets/screen_2.gif" style="zoom:40%;" />
+</p>
 
 #### 3. Detalle de producto
 
 En esta pantalla el usuario podrá ver mas detalles sobre el producto seleccionado.
 
-![screen_3.gif](assets/screen_1.gif){ align=center }
+<p align="center">
+    <img src="./assets/screen_3.gif" style="zoom:40%;" />
+</p>
