@@ -8,8 +8,6 @@ El desarrollo se hizo siguiendo las prácticas de [Clean Architecture](https://b
 
 ### Tecnologías utilizadas
 
-**Desarrollo**:
-
 - **Kotlin**
 - **Retrofit & OkHttp** para la integración de APIs REST.
 - **Kotlin Coroutines** para el soporte de programación asíncrona.
@@ -37,7 +35,7 @@ Antes de comenzar, hay que asegurarse de tener instalado Java 17.
 
 La app consta de tres pantallas, como lo recomienda el ejercicio. El usuario podrá tanto avanzar como retroceder al navegar por las pantallas.
 
-#### 1. Input de búsqueda
+### 1. Input de búsqueda
 
 En esta pantalla el usuario puede ingresar el nombre o una frase de lo que desea buscar. Puede iniciar la búsqueda del texto ingresado apretando la opción de *Enter* en su teclado, que lo llevará a l siguiente pantalla.
 
@@ -46,7 +44,7 @@ Al intentar iniciar la búsqueda con un texto vacío no se navegará a la siguie
   <img src="./assets/screen_1.gif" style="width:40%; height:auto;" />
 </p>
 
-#### 2. Listado de productos
+### 2. Listado de productos
 
 En esta pantalla el usuario recibirá un listado de productos acorde a su búsqueda en forma de catálogo. El catálogo estará compuesto por múltiples cartas mostrando foto y detalles productos. El usuario podrá navegar el catálogo verticalmente y seleccionar la carta del producto del que quiera ver mas detalles. Al presionar sobre la carta de un producto el usuario es llevado a la siguiente y ultima pantalla.
 
@@ -54,7 +52,7 @@ En esta pantalla el usuario recibirá un listado de productos acorde a su búsqu
   <img src="./assets/screen_2.gif" style="width:40%; height:auto;" />
 </p>
 
-#### 3. Detalle de producto
+### 3. Detalle de producto
 
 En esta pantalla el usuario podrá ver mas detalles sobre el producto seleccionado.
 
